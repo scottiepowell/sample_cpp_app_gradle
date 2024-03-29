@@ -1,0 +1,28 @@
+// Define subprojects
+subprojects {
+    apply plugin: 'cpp'
+
+    // Define source sets for CPP and header files
+    sourceSets {
+        main {
+            cpp {
+                srcDir 'src/main/cpp'
+            }
+            headers {
+                srcDir 'src/main/headers'
+            }
+        }
+    }
+}
+
+// Explicitly include subprojects (optional if you have settings.gradle configured)
+include 'src:module1', 'src:module2', 'src:module3', 'src:module4'
+
+// Task to clean all subprojects
+task clean {
+    doLast {
+        subprojects.each { project ->
+            project.delete project.buildDir
+        }
+    }
+}
