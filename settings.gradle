@@ -1,3 +1,4 @@
 
-rootProject.name = 'demo'
-include('app')
+rootProject.name = 'sample_cpp_app_gradle'
+include 'module1', 'module2', 'module3', 'module4'
+

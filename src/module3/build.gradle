@@ -1,0 +1,14 @@
+plugins {
+    id 'cpp-application'
+}
+
+application {
+    binaries.all {
+        compilation.cppCompiler.args.add("-std=c++11")
+    }
+}
+
+tasks.withType(CompileCpp).configureEach {
+    // Include the headers directory
+    includes.from("src/main/headers")
+}
